@@ -130,6 +130,13 @@ MTS/
 
 When the user drops a new PDF (e.g., `pdfs/3_<Topic>.pdf`):
 
+### Step 0: PDF Triage (When Multiple PDFs Are Provided)
+
+- If the user uploads multiple files for the same topic (e.g., full lecture slides vs. condensed/summary slides, or lecture slides vs. a full textbook chapter), **compare them first and report your recommendation to the user before converting**:
+  - Prefer the **full lecture slide deck** over condensed/AI-summary versions (condensed decks often drop worked examples, equations, and class annotations).
+  - Do **not** convert massive reference textbook chapters unless explicitly requested — convert the lecturer's slide deck instead.
+- Deduplicate pure repeated slides (cite all slide numbers in `<span class="slide-tag">Slides X, Y</span>`), skip blank slides and unlabeled filler photos, and for dense spec sheets with zoomed legible halves, keep the legible halves rather than tiny unreadable full-page scans.
+
 ### Step 1: Read Every Page of the PDF
 
 - Inspect every page visually/OCR (using the PDF reading tool) to capture:
@@ -197,6 +204,48 @@ foreach ($slideNum in $neededSlides) {
   - Only diagram/graph images via `<img src="{{SLIDES}}/slide_XX.png" ... />`
 - Copy `notes/relief-sizing/index.html` to `notes/<slug>/index.html` and update the `<title>`, sidebar header, and `window.NOTE_IMG_BASE = { "<slug>": "slides" };`.
 
+#### Reusable HTML Component Patterns (Use Exact Classes)
+
+```html
+<!-- Section wrapper (becomes a topic in sidebar & TOC) -->
+<section class="topic-section" id="topic-1" data-topic="1" data-short="Short Sidebar Label">
+  <h2 class="section-title">1. Verbatim Section Title</h2>
+
+  <!-- Subtopic heading (auto-indexed as sidebar jump link) -->
+  <h3 class="sub-title">
+    1.1 Verbatim Subtopic Heading <span class="slide-tag">Slides 3, 4</span>
+  </h3>
+
+  <!-- Side-by-side cards (also auto-indexed as sidebar jump links via .card > h4) -->
+  <div class="grid-2">
+    <div class="card">
+      <h4>1.2 Card Heading <span class="slide-tag">Slide 5</span></h4>
+      <ul style="margin-bottom: 0"><li>...</li></ul>
+    </div>
+  </div>
+
+  <!-- KaTeX equation box (ALWAYS pure LaTeX, never CSS hacks) -->
+  <div class="eq-box">
+    <div class="eq-row">
+      <span class="katex-eq">Q = U A \Delta T</span>
+      <span class="eq-ref">Eq. 16-1</span>
+    </div>
+  </div>
+
+  <!-- Worked example box -->
+  <div class="example-box">
+    <h4>Example 16.1 <span class="slide-tag">Slides 53–62</span></h4>
+    <p>...</p>
+  </div>
+
+  <!-- Diagram / graph image ONLY (never text/equation-only slides) -->
+  <div class="fig-box">
+    <strong>Slide 10: Exact Figure Caption</strong><br />
+    <img src="{{SLIDES}}/slide_10.png" alt="Slide 10 - Caption" style="width:85%; margin:6px auto 0 auto;" />
+  </div>
+</section>
+```
+
 ### Step 4: Register in Root `index.html`
 
 In `index.html`, add 2 lines:
@@ -261,6 +310,11 @@ for (const note of ctx.window.NOTES_REGISTRY) {
   );
 }
 ```
+
+### Step 6: Update `PROJECT_GUIDE.md`
+
+- Add the new chapter folder & PDF to **Section 1 (Current Folder Structure)** and add a new row to **Section 4 (Completed Chapters Inventory)**.
+- If the user changed any styling, layout, or workflow rule, update **Section 2** or **Section 3** as well.
 
 ---
 
