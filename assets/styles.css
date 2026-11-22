@@ -13,6 +13,13 @@
   box-sizing: border-box;
 }
 
+em,
+i,
+cite,
+var {
+  font-style: normal;
+}
+
 body {
   font-family: "IBM Plex Sans", "Segoe UI", Roboto, Arial, sans-serif;
   font-size: 15.5px;
@@ -602,6 +609,17 @@ th {
 .eq-box .katex {
   font-size: 1.15em;
   color: var(--text);
+}
+.katex .mathnormal,
+.katex .mathit,
+.katex .textit,
+.katex .boldsymbol {
+  font-family: KaTeX_Main, "Cambria Math", "IBM Plex Sans", serif;
+  font-style: normal;
+}
+.katex .mathitsf,
+.katex .textitsf {
+  font-style: normal;
 }
 .eq-box .katex-display {
   margin: 0.2em 0;
