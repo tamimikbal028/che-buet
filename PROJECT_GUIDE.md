@@ -25,13 +25,18 @@ MTS/
 │   │   ├── index.html                # Standalone chapter page
 │   │   ├── note.js                   # Chapter registry payload + verbatim HTML
 │   │   └── slides/                   # ONLY diagram/graph/P&ID slide PNGs (17 files)
-│   └── relief-sizing/                # PDF 2: 2_Chapter 9 relief sizing.pdf (Slides 2–41)
+│   ├── relief-sizing/                # PDF 2: 2_Chapter 9 relief sizing.pdf (Slides 2–41)
+│   │   ├── index.html                # Standalone chapter page
+│   │   ├── note.js                   # Chapter registry payload + verbatim HTML
+│   │   └── slides/                   # ONLY diagram/graph/chart slide PNGs (10 files)
+│   └── ejectors/                     # PDF 3: 3_Ejector.pdf (34 slides, Chap-6 Ludwig)
 │       ├── index.html                # Standalone chapter page
 │       ├── note.js                   # Chapter registry payload + verbatim HTML
-│       └── slides/                   # ONLY diagram/graph/chart slide PNGs (10 files)
+│       └── slides/                   # ONLY diagram/graph/chart/form slide PNGs (17 files)
 └── pdfs/
     ├── 1_Relief system.pdf
-    └── 2_Chapter 9 relief sizing.pdf
+    ├── 2_Chapter 9 relief sizing.pdf
+    └── 3_Ejector.pdf
 ```
 
 ---
@@ -246,7 +251,8 @@ for (const note of ctx.window.NOTES_REGISTRY) {
 
 ## 4. Completed Chapters Inventory
 
-| #   | PDF Source                                                    | Folder                  | Topics | Equations (KaTeX) | Visual Slide PNGs Kept                                                    |
-| --- | ------------------------------------------------------------- | ----------------------- | ------ | ----------------- | ------------------------------------------------------------------------- |
-| 1   | `pdfs/1_Relief system.pdf` (47 slides)                        | `notes/relief-systems/` | 8      | 4                 | 17 (`01, 02, 03, 07, 12, 13, 15, 16, 18, 30, 31, 32, 35, 36, 39, 40, 42`) |
-| 2   | `pdfs/2_Chapter 9 relief sizing.pdf` (Slides 2–41; p.1 blank) | `notes/relief-sizing/`  | 8      | 25                | 10 (`05, 10, 12, 14, 17, 21, 23, 33, 37, 40`)                             |
+| #   | PDF Source                                                                              | Folder                  | Topics | Equations (KaTeX) | Visual Slide PNGs Kept                                                    |
+| --- | --------------------------------------------------------------------------------------- | ----------------------- | ------ | ----------------- | ------------------------------------------------------------------------- |
+| 1   | `pdfs/1_Relief system.pdf` (47 slides)                                                  | `notes/relief-systems/` | 8      | 4                 | 17 (`01, 02, 03, 07, 12, 13, 15, 16, 18, 30, 31, 32, 35, 36, 39, 40, 42`) |
+| 2   | `pdfs/2_Chapter 9 relief sizing.pdf` (Slides 2–41; p.1 blank)                           | `notes/relief-sizing/`  | 8      | 25                | 10 (`05, 10, 12, 14, 17, 21, 23, 33, 37, 40`)                             |
+| 3   | `pdfs/3_Ejector.pdf` (34 slides; `3_Chapter 6_Ejector_Ludwig.pdf` kept as textbook ref) | `notes/ejectors/`       | 7      | 11                | 17 (`01, 02, 03, 05, 06, 07, 09, 11, 15, 16, 17, 18, 19, 28, 30, 31, 34`) |
