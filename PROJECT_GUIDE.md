@@ -1,4 +1,4 @@
-# Study Hub — Project Guide & Agent Handoff (React + Vite)
+# Study Notes Hub — Project Guide & Agent Handoff (React + Vite)
 
 This document records **every rule, design decision, folder convention, and step-by-step workflow** for this multi-course, multi-teacher **React + Vite + Tailwind CSS v4 + KaTeX** study hub so any future chat/agent can add new courses, teachers, or PDFs with **zero extra explanation**.
 
@@ -12,7 +12,7 @@ This document records **every rule, design decision, folder convention, and step
 Vite automatically discovers every Course → Instructor → Chapter via `import.meta.glob()` in `src/lib/loadCourses.js` — **no manual imports or sidebar edits are needed** when adding a new course, teacher, or chapter!
 
 ```text
-MTS/
+study-notes-hub/
 ├── index.html                        # Vite entry (IBM Plex Sans font + #root)
 ├── package.json                      # React 19, Vite 6, Tailwind CSS v4, KaTeX, lucide-react
 ├── vite.config.js                    # @vitejs/plugin-react + @tailwindcss/vite + base: "./"
