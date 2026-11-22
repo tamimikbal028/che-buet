@@ -151,7 +151,7 @@ export default function App() {
   }
 
   return (
-    <div className="flex min-h-screen items-start bg-slate-100">
+    <div className="flex min-h-screen items-start overflow-x-clip bg-slate-100">
       <Sidebar
         courses={courses}
         activeCourse={activeCourse}

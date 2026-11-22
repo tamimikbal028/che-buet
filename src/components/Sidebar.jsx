@@ -35,9 +35,11 @@ export default function Sidebar({
       <aside
         aria-label="Course, teacher, chapter, and topic navigation"
         className={[
-          "no-print fixed inset-y-0 left-0 z-40 flex h-screen w-80 shrink-0 flex-col overflow-y-auto border-r border-slate-300 bg-white shadow-sm transition-all duration-200 lg:sticky lg:top-0",
+          "no-print fixed inset-y-0 left-0 z-40 flex h-screen w-80 shrink-0 flex-col overflow-y-auto border-r border-slate-300 bg-white shadow-sm transition-all duration-200 lg:sticky lg:top-0 lg:left-auto",
           mobileOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0",
-          collapsed ? "lg:-ml-80" : "lg:ml-0",
+          collapsed
+            ? "lg:-ml-80 lg:pointer-events-none lg:opacity-0"
+            : "lg:ml-0 lg:opacity-100",
         ].join(" ")}
       >
         {/* Top Course Header */}
