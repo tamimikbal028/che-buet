@@ -19,23 +19,43 @@ study-notes-hub/
 ├── PROJECT_GUIDE.md                  # This handoff & conventions guide
 ├── pdfs/                             # Source PDFs organized by Course -> Teacher
 │   └── ChE-311-Unit-Operations/
-│       └── Dr-Md-Tanvir-Sowgath/
-│           ├── 1_Relief system.pdf
-│           ├── 2_Chapter 9 relief sizing.pdf
-│           ├── 3_Ejector.pdf
-│           ├── 4_2025_Evaporator.pdf
-│           ├── 5_Dryer.pdf
-│           └── 6_Mixing Agitation  2026.pdf
+│       ├── Dr-Md-Tanvir-Sowgath/     # Part A (6 PDFs)
+│       │   ├── 1_Relief system.pdf
+│       │   ├── 2_Chapter 9 relief sizing.pdf
+│       │   ├── 3_Ejector.pdf
+│       │   ├── 4_2025_Evaporator.pdf
+│       │   ├── 5_Dryer.pdf
+│       │   └── 6_Mixing Agitation  2026.pdf
+│       └── Kamrul sir/               # Part B (10 PDFs -> 8 chapters)
+│           ├── 01 - Special Topics in Unit Operations-1.pdf
+│           ├── 02 - Mech.sep_1_January 2025-1.pdf
+│           ├── 03 - Mech.sep_2_1_January 2025.pdf
+│           ├── 04 - Mech.sep_2_2_January 2025 (1).pdf
+│           ├── 04 - Vertical_Gravity_Settler_Problem [Repaired].pdf
+│           ├── 05 - Mech.sep_2_3_January 25.pdf
+│           ├── 06 - Crystallization_MKH.pdf
+│           ├── 06 - Crystallizer 20323.pdf
+│           ├── 07 - Size Reduction_jan 26_MKH.pdf
+│           └── 08 - Solid_handling_machinery.PDF
 ├── public/
 │   └── slides/                       # ONLY diagram/graph/chart/form PNGs (mirrors Course/Teacher/Chapter)
 │       └── ChE-311-Unit-Operations/
-│           └── Dr-Md-Tanvir-Sowgath/
-│               ├── 01-relief-systems/       # 17 PNGs
-│               ├── 02-relief-sizing/        # 10 PNGs
-│               ├── 03-ejectors/             # 17 PNGs
-│               ├── 04-evaporator/           # 28 PNGs
-│               ├── 05-dryer/                # 33 PNGs
-│               └── 06-mixing-agitation/     # 24 PNGs
+│           ├── Dr-Md-Tanvir-Sowgath/
+│           │   ├── 01-relief-systems/       # 17 PNGs
+│           │   ├── 02-relief-sizing/        # 10 PNGs
+│           │   ├── 03-ejectors/             # 17 PNGs
+│           │   ├── 04-evaporator/           # 28 PNGs
+│           │   ├── 05-dryer/                # 33 PNGs
+│           │   └── 06-mixing-agitation/     # 24 PNGs
+│           └── Md-Kamrul-Hasan/
+│               ├── 01-course-intro/         # 3 PNGs
+│               ├── 02-mech-sep-1/           # 14 PNGs
+│               ├── 03-mech-sep-2-1/         # 7 PNGs
+│               ├── 04-mech-sep-2-2/         # 27 PNGs
+│               ├── 05-mech-sep-2-3/         # 13 PNGs
+│               ├── 06-crystallization/      # 20 PNGs
+│               ├── 07-size-reduction/       # 25 PNGs
+│               └── 08-solid-handling/       # 13 PNGs
 └── src/
     ├── main.jsx
     ├── App.jsx                       # State, URL hash (#course/teacher/chapter), layout shell
@@ -51,14 +71,24 @@ study-notes-hub/
     └── courses/
         └── ChE-311-Unit-Operations/
             ├── course.json           # { "code": "ChE 311", "name": "Unit Operations", "order": 1 }
-            └── Dr-Md-Tanvir-Sowgath/
-                ├── teacher.json      # { "name": "Dr. Md Tanvir Sowgath", "short": "MTS", "part": "Part A", "order": 1 }
-                ├── 01-relief-systems.js
-                ├── 02-relief-sizing.js
-                ├── 03-ejectors.js
-                ├── 04-evaporator.js
-                ├── 05-dryer.js
-                └── 06-mixing-agitation.js
+            ├── Dr-Md-Tanvir-Sowgath/
+            │   ├── teacher.json      # { "name": "Dr. Md Tanvir Sowgath", "short": "MTS", "part": "Part A", "order": 1 }
+            │   ├── 01-relief-systems.js
+            │   ├── 02-relief-sizing.js
+            │   ├── 03-ejectors.js
+            │   ├── 04-evaporator.js
+            │   ├── 05-dryer.js
+            │   └── 06-mixing-agitation.js
+            └── Md-Kamrul-Hasan/
+                ├── teacher.json      # { "name": "Md Kamrul Hasan", "short": "MKH", "part": "Part B", "order": 2 }
+                ├── 01-course-intro.js
+                ├── 02-mech-sep-1.js
+                ├── 03-mech-sep-2-1.js
+                ├── 04-mech-sep-2-2.js
+                ├── 05-mech-sep-2-3.js
+                ├── 06-crystallization.js
+                ├── 07-size-reduction.js
+                └── 08-solid-handling.js
 ```
 
 ### Running Locally & Building
@@ -296,11 +326,13 @@ Run both checks after every chapter addition:
          const mod = await import(pathToFileURL(path.resolve(teacherPath, file)).href);
          const note = mod.default;
          const dir = path.join("public", "slides", courseSlug, teacherSlug, chSlug);
-         const used = new Set([...note.html.matchAll(/\{\{SLIDES\}\}\/(slide_\d+\.png)/g)].map((m) => m[1]));
-         const onDisk = fs.existsSync(dir) ? fs.readdirSync(dir) : [];
+         const used = new Set([...note.html.matchAll(/\{\{SLIDES\}\}\/([^"'\s]+\.png)/g)].map((m) => m[1]));
+         const onDisk = fs.existsSync(dir) ? fs.readdirSync(dir).filter((f) => f.endsWith(".png")) : [];
          const missing = [...used].filter((f) => !onDisk.includes(f));
          const unused = onDisk.filter((f) => !used.has(f));
-         const eqs = [...note.html.matchAll(/<span class="katex-eq">([\s\S]*?)<\/span>/g)].map((m) => m[1].trim());
+         const eqs = [...note.html.matchAll(/<span class="katex-eq">([\s\S]*?)<\/span>/g)].map((m) =>
+           m[1].replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").trim()
+         );
          eqs.forEach((tex) => katex.renderToString(tex, { displayMode: true, throwOnError: true, strict: false }));
          const divO = (note.html.match(/<div\b/g) || []).length;
          const divC = (note.html.match(/<\/div>/g) || []).length;
@@ -341,3 +373,16 @@ Run both checks after every chapter addition:
 | 4   | `pdfs/ChE-311-Unit-Operations/Dr-Md-Tanvir-Sowgath/4_2025_Evaporator.pdf` (101 slides, CHE 311)            | `04-evaporator.js`       | 11     | 67        | 28 (`10, 14, 16, 17, 19, 20, 21, 30, 32, 33, 35, 37, 38, 39, 42, 43, 44, 45, 58, 59, 70, 77, 80, 91, 92, 97, 99, 101`)                    |
 | 5   | `pdfs/ChE-311-Unit-Operations/Dr-Md-Tanvir-Sowgath/5_Dryer.pdf` (99 slides)                                | `05-dryer.js`            | 10     | 54        | 33 (`04, 06, 07, 08, 09, 11, 12, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25, 27, 28, 33, 35, 37, 39, 40, 42, 44, 48, 52, 60, 67, 69, 79, 82`) |
 | 6   | `pdfs/ChE-311-Unit-Operations/Dr-Md-Tanvir-Sowgath/6_Mixing Agitation  2026.pdf` (48 slides)               | `06-mixing-agitation.js` | 8      | 16        | 24 (`01, 08, 09, 10, 11, 12, 13, 14, 17, 18, 19, 20, 21, 22, 26, 27, 28, 29, 34, 37, 42, 43, 47, 48`)                                     |
+
+#### Part B: Md Kamrul Hasan (`Md-Kamrul-Hasan`)
+
+| #   | PDF Source                                                                                                                                                     | Chapter Module          | Topics | KaTeX Eqs | Visual Slide PNGs Kept                                                                                                                                                           |
+| --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | ------ | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | `pdfs/ChE-311-Unit-Operations/Kamrul sir/01 - Special Topics in Unit Operations-1.pdf` (13 slides)                                                             | `01-course-intro.js`    | 5      | 0         | 3 (`08, 09, 10`)                                                                                                                                                                 |
+| 2   | `pdfs/ChE-311-Unit-Operations/Kamrul sir/02 - Mech.sep_1_January 2025-1.pdf` (22 slides)                                                                       | `02-mech-sep-1.js`      | 7      | 6         | 14 (`06, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22`)                                                                                                                    |
+| 3   | `pdfs/ChE-311-Unit-Operations/Kamrul sir/03 - Mech.sep_2_1_January 2025.pdf` (22 slides)                                                                       | `03-mech-sep-2-1.js`    | 7      | 6         | 7 (`03, 07, 09, 12, 13, 14, 22`)                                                                                                                                                 |
+| 4   | `pdfs/ChE-311-Unit-Operations/Kamrul sir/04 - Mech.sep_2_2_January 2025 (1).pdf` (48p) + `04 - Vertical_Gravity_Settler_Problem [Repaired].pdf` (4p)           | `04-mech-sep-2-2.js`    | 9      | 46        | 27 (`slide_02, 03, 04, 05, 07, 08, 09, 10, 11, 15, 20, 21, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 42, 45, 46, 48` + `vgs_04`)                                                   |
+| 5   | `pdfs/ChE-311-Unit-Operations/Kamrul sir/05 - Mech.sep_2_3_January 25.pdf` (28 slides)                                                                         | `05-mech-sep-2-3.js`    | 6      | 9         | 13 (`01, 02, 03, 07, 13, 15, 16, 17, 18, 20, 21, 25, 27`)                                                                                                                        |
+| 6   | `pdfs/ChE-311-Unit-Operations/Kamrul sir/06 - Crystallization_MKH.pdf` (22p) + `06 - Crystallizer 20323.pdf` (53p) — Unified Merge                             | `06-crystallization.js` | 8      | 21        | 20 (`mkh_06, 08, 10, 11, 14` + `cryst_09, 10, 11, 14, 15, 17, 18, 20, 24, 28, 29, 32, 36, 37, 45`)                                                                               |
+| 7   | `pdfs/ChE-311-Unit-Operations/Kamrul sir/07 - Size Reduction_jan 26_MKH.pdf` (58 slides)                                                                       | `07-size-reduction.js`  | 8      | 16        | 25 (`01, 06, 09, 11, 16, 17, 18, 27, 28, 29, 30, 32, 33, 34, 35, 36, 37, 40, 44, 48, 52, 54, 55, 56, 57`)                                                                        |
+| 8   | `pdfs/ChE-311-Unit-Operations/Kamrul sir/08 - Solid_handling_machinery.PDF` (20 slides; cover prints Md. Mominur Rahman)                                       | `08-solid-handling.js`  | 6      | 1         | 13 (`02, 05, 06, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20`)                                                                                                                        |
