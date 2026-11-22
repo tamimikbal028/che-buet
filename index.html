@@ -3,110 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MTS Lecture Notes Hub</title>
+    <title>Study Hub — Lecture Notes</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=STIX+Two+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="assets/katex/katex.min.css" />
-    <link rel="stylesheet" href="assets/styles.css" />
   </head>
-  <body>
-    <div class="sidebar-backdrop no-print" id="sidebarBackdrop"></div>
-    <div class="app-layout">
-      <!-- Left Sidebar -->
-      <aside class="sidebar no-print" id="sidebar" aria-label="Chapter and topic navigation">
-        <div class="sidebar-header">
-          <div>
-            <h2 id="sidebarTitle">Relief Systems</h2>
-            <p id="sidebarSubtitle">Dr. Md Tanvir Sowgath</p>
-          </div>
-          <button
-            class="sidebar-close-btn"
-            id="sidebarCloseBtn"
-            title="Close sidebar"
-            aria-label="Close sidebar"
-          >
-            &times;
-          </button>
-        </div>
-
-        <!-- Chapter Switcher -->
-        <div class="chapter-switcher" id="chapterSwitcher">
-          <div class="chapter-switcher-label">Lecture Notes</div>
-          <div class="chapter-tabs" id="chapterTabs"></div>
-        </div>
-
-        <div class="sidebar-controls">
-          <input
-            type="search"
-            id="topicSearch"
-            class="sidebar-search"
-            placeholder="Search topics or keywords..."
-            aria-label="Search topics or keywords"
-          />
-          <div class="sidebar-actions">
-            <button type="button" class="filter-chip active" id="showAllBtn">
-              All Topics
-            </button>
-            <button type="button" class="filter-chip" id="clearChecksBtn">
-              Reset
-            </button>
-          </div>
-          <p class="sidebar-hint">
-            Click a topic to focus on it, or use checkboxes to filter multiple topics.
-          </p>
-        </div>
-
-        <nav class="topic-nav" id="topicNav"></nav>
-      </aside>
-
-      <!-- Main Reading Area -->
-      <main class="main-content">
-        <div class="print-bar no-print">
-          <div class="print-bar-left">
-            <button
-              type="button"
-              class="sidebar-toggle-btn"
-              id="sidebarToggleBtn"
-              aria-label="Toggle sidebar"
-            >
-              &#9776; Topics
-            </button>
-            <span
-              ><strong>Tip:</strong> Click "Save as PDF" (or Ctrl+P) to export the
-              currently shown topic(s).</span
-            >
-          </div>
-          <button class="print-btn" onclick="window.print()">
-            Print / Save as PDF
-          </button>
-        </div>
-
-        <div class="container" id="docRoot"></div>
-      </main>
-    </div>
-
-    <script>
-      window.NOTES_REGISTRY = [];
-      window.NOTE_IMG_BASE = {
-        "relief-systems": "notes/relief-systems/slides",
-        "relief-sizing": "notes/relief-sizing/slides",
-        ejectors: "notes/ejectors/slides",
-        evaporator: "notes/evaporator/slides",
-        dryer: "notes/dryer/slides",
-        "mixing-agitation": "notes/mixing-agitation/slides",
-      };
-    </script>
-    <script src="assets/katex/katex.min.js"></script>
-    <script src="notes/relief-systems/note.js"></script>
-    <script src="notes/relief-sizing/note.js"></script>
-    <script src="notes/ejectors/note.js"></script>
-    <script src="notes/evaporator/note.js"></script>
-    <script src="notes/dryer/note.js"></script>
-    <script src="notes/mixing-agitation/note.js"></script>
-    <script src="assets/app.js"></script>
+  <body class="bg-slate-100 text-slate-900 antialiased">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
