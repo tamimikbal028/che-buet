@@ -2,11 +2,11 @@ export default {
   order: 4,
   id: "04-mech-sep-2-2",
   title: "Gravity Settlers, Impingement Separators & Cyclones",
-  shortTitle: "Gravity Settlers, Impingement & Cyclones",
+  shortTitle: "Gravity Settlers, Impingement Separators & Cyclones",
   subtitle:
-    "Md Kamrul Hasan &nbsp;|&nbsp; Mechanical Separation 2.2 + VGS Problem &nbsp;|&nbsp; 48 + 4 Pages",
+    "04 - Mech.sep_2_2_January 2025 (1).pdf (48 Slides) &nbsp;+&nbsp; 04 - Vertical_Gravity_Settler_Problem [Repaired].pdf (4 Slides)",
   meta: "9 Topics · 52 Pages",
-  slideCount: "52 Pages",
+  slideCount: "48 + 4 Slides",
   html: String.raw`
     <!-- SECTION 1 -->
     <section

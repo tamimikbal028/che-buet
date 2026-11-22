@@ -2,8 +2,8 @@ export default {
   order: 5,
   id: "05-mech-sep-2-3",
   title: "Fabric Filtration, Scrubbing & Electrostatic Precipitation",
-  shortTitle: "Fabric Filtration, Scrubbing & ESP",
-  subtitle: "Md Kamrul Hasan &nbsp;|&nbsp; Mechanical Separation 2.3 &nbsp;|&nbsp; All 28 Slides",
+  shortTitle: "Fabric Filtration, Scrubbing & Electrostatic Precipitation",
+  subtitle: "05 - Mech.sep_2_3_January 25.pdf (28 Slides)",
   meta: "6 Topics · 28 Slides",
   slideCount: "28 Slides",
   html: String.raw`

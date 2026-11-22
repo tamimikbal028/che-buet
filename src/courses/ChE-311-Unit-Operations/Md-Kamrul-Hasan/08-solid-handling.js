@@ -4,7 +4,7 @@ export default {
   title: "Solid Handling Machinery",
   shortTitle: "Solid Handling Machinery",
   subtitle:
-    "ChE 311 (Slide Cover: Md. Mominur Rahman) &nbsp;|&nbsp; All 20 Slides",
+    "08 - Solid_handling_machinery.PDF (20 Slides)",
   meta: "6 Topics · 20 Slides",
   slideCount: "20 Slides",
   html: String.raw`

@@ -3,7 +3,7 @@ export default {
   id: "06-crystallization",
   title: "Crystallization",
   shortTitle: "Crystallization",
-  subtitle: "Md Kamrul Hasan (MKH, 22 Slides) &amp; Crystallizer Deck (53 Slides)",
+  subtitle: "06 - Crystallization_MKH.pdf (22 Slides) &nbsp;+&nbsp; 06 - Crystallizer 20323.pdf (53 Slides)",
   meta: "8 Topics · 22 + 53 Slides",
   slideCount: "22 + 53 Slides",
   html: String.raw`

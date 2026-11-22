@@ -3,7 +3,7 @@ export default {
   id: "07-size-reduction",
   title: "Size Reduction",
   shortTitle: "Size Reduction",
-  subtitle: "Md Kamrul Hasan (MKH) &nbsp;|&nbsp; All 58 Slides",
+  subtitle: "07 - Size Reduction_jan 26_MKH.pdf (58 Slides)",
   meta: "8 Topics · 58 Slides",
   slideCount: "58 Slides",
   html: String.raw`

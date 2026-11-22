@@ -139,6 +139,7 @@ export default function Sidebar({
                 <button
                   key={ch.slug}
                   type="button"
+                  title={ch.title}
                   onClick={() => {
                     onSelectChapter(ch.slug);
                     onCloseMobile();
@@ -151,7 +152,7 @@ export default function Sidebar({
                   ].join(" ")}
                 >
                   <span className="truncate">
-                    {idx + 1}. {ch.shortTitle || ch.title}
+                    {idx + 1}. {ch.title}
                   </span>
                   <span className="shrink-0 text-[11px] font-medium text-slate-500">
                     {ch.slideCount}

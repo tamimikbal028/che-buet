@@ -2,8 +2,8 @@ export default {
   order: 2,
   id: "02-mech-sep-1",
   title: "Mechanical Separation (Lecture 1)",
-  shortTitle: "Mechanical Separation (Lec 1)",
-  subtitle: "Md Kamrul Hasan &nbsp;|&nbsp; Ludwig Vol. 1 Ch. 4 &nbsp;|&nbsp; All 22 Slides",
+  shortTitle: "Mechanical Separation (Lecture 1)",
+  subtitle: "02 - Mech.sep_1_January 2025-1.pdf (22 Slides)",
   meta: "7 Topics · 22 Slides",
   slideCount: "22 Slides",
   html: String.raw`

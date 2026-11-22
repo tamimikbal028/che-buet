@@ -2,8 +2,8 @@ export default {
   order: 3,
   id: "03-mech-sep-2-1",
   title: "Mechanical Separation (Lecture 2.1)",
-  shortTitle: "Particle Size, Sylvan & Perry Charts",
-  subtitle: "Md Kamrul Hasan &nbsp;|&nbsp; Ludwig Ch. 4 &nbsp;|&nbsp; All 22 Slides",
+  shortTitle: "Mechanical Separation (Lecture 2.1)",
+  subtitle: "03 - Mech.sep_2_1_January 2025.pdf (22 Slides)",
   meta: "7 Topics · 22 Slides",
   slideCount: "22 Slides",
   html: String.raw`

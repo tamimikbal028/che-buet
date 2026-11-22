@@ -150,8 +150,8 @@ export default {
   order: 1,
   id: "01-chapter-slug",
   title: "Exact Chapter Title",
-  shortTitle: "Short Sidebar Label",
-  subtitle: "Instructor Name &nbsp;|&nbsp; All N Slides",
+  shortTitle: "Exact Chapter Title", // Always match `title` so Sidebar, Top Bar, and Page H1 stay identical
+  subtitle: "Exact_PDF_Filename.pdf (N Slides)", // For merged PDFs: "File_1.pdf (N1 Slides) &nbsp;+&nbsp; File_2.pdf (N2 Slides)"
   meta: "8 Topics · N Slides",
   slideCount: "N Slides",
   html: String.raw`
@@ -164,6 +164,7 @@ export default {
 };
 ```
 
+- **`subtitle` Rule:** Always set `subtitle` to the **exact verbatim source PDF filename(s)** plus slide count (e.g., `1_Relief system.pdf (47 Slides)`, or for merged PDFs `File_1.pdf (N1 Slides) &nbsp;+&nbsp; File_2.pdf (N2 Slides)`).
 - Reference images inside `html` using **`{{SLIDES}}/slide_XX.png`**. `loadCourses.js` automatically maps `{{SLIDES}}` to `${BASE_URL}slides/<Course>/<Teacher>/<NN-chapter>`.
 
 ---

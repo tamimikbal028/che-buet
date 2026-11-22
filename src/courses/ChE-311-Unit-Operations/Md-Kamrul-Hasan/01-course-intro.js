@@ -2,8 +2,8 @@ export default {
   order: 1,
   id: "01-course-intro",
   title: "Special Topics in Unit Operations",
-  shortTitle: "Course Intro & Syllabus",
-  subtitle: "Md Kamrul Hasan &nbsp;|&nbsp; ChE 311 &nbsp;|&nbsp; All 13 Slides",
+  shortTitle: "Special Topics in Unit Operations",
+  subtitle: "01 - Special Topics in Unit Operations-1.pdf (13 Slides)",
   meta: "5 Topics · 13 Slides",
   slideCount: "13 Slides",
   html: String.raw`
