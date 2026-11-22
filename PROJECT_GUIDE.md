@@ -73,13 +73,18 @@ npm run preview  # Preview production build locally
 
 ## 2. Strict Rules & User Preferences (MUST FOLLOW)
 
-### A. Content Fidelity (Zero Extra Words!)
+### A. Content Fidelity (ZERO Cut, ZERO Add — 100% Verbatim!)
 
-1. **Strictly verbatim from the PDF slides:** Do **NOT** invent, expand, or editorialize headings, subheadings, bullet points, or explanatory notes that are not on the slides.
+> **Core Philosophy:** We are organizing the lecturer's exact PDF into a clean, readable HTML format — **do NOT cut/omit anything and do NOT add/invent anything**. Deciding what is "important" for exams happens later; the HTML must preserve 100% of what is in the PDF verbatim.
+
+1. **ZERO Additions (No Extra Words):** Do **NOT** invent, expand, reword, or editorialize headings, subheadings, bullet points, or explanatory notes that are not on the slides.
    - Example of what NOT to do: turning `"Relief System Protection"` into `"Relief System Protection Philosophy"`, adding `"Objectives of a"`, `"Engineering Tasks"`, `"Selection Criteria"`, `"Concept"`, `"Limitation:"`, `"When to use:"`, invented `"Note:"` paragraphs, or unprinted acronyms like `(PSI)`.
-2. **Handwritten annotations on slides:** Include legible handwritten symbols/notes and typo fixes that actually appear on the slide (e.g., `Ps`, `Pb`, `PRV/PSV`, `N₂, CO₂`, `α`, `ΔT`, `1/U² vs θ is linear`) faithfully, without adding outside explanations.
-3. **100% Slide Coverage:** Every non-blank slide of the PDF must be accounted for with slide tags (`<span class="slide-tag">Slide X</span>`).
-4. **No Double Numbering:**
+2. **ZERO Cuts / Omissions (No Summarizing):** Do **NOT** shorten, summarize, paraphrase, or drop any text, bullet, table row, equation, worked-example step, footnote, diagram, or slide because it seems "minor" or "less important". Every piece of content from every slide must be included faithfully.
+   - Only truly **100% blank empty pages** (zero text/visuals) may be skipped.
+   - If two slides are literally identical duplicates, include the complete content once and cite both slide numbers in `<span class="slide-tag">Slides X, Y</span>`.
+3. **Handwritten annotations on slides:** Include all legible handwritten symbols/notes and typo fixes that actually appear on the slide (e.g., `Ps`, `Pb`, `PRV/PSV`, `N₂, CO₂`, `α`, `ΔT`, `1/U² vs θ is linear`) faithfully, without adding outside explanations.
+4. **100% Slide Coverage:** Every non-blank slide of the PDF must be accounted for with slide tags (`<span class="slide-tag">Slide X</span>`).
+5. **No Double Numbering:**
    - `ChapterReader.jsx` builds `<ol>` Contents Overview by stripping leading `N.` from each `h2.section-title`.
    - If a slide heading already starts with a case number (like `1a -`, `2a -`, `3 -`, `4 –`, `5 -`, `6 –`), do **not** prefix another number in front of it (e.g., put `(1a)` at the end of `h2` and keep `1a - ...` clean on `h3`).
 
@@ -140,7 +145,7 @@ export default {
 - If the user uploads multiple files for the same topic (e.g., full lecture slides vs. condensed/summary slides, or lecture slides vs. a full textbook chapter), **compare them first and report your recommendation to the user before converting**:
   - Prefer the **full lecture slide deck** over condensed/AI-summary versions (condensed decks often drop worked examples, equations, and class annotations).
   - Do **not** convert massive reference textbook chapters unless explicitly requested — convert the lecturer's slide deck instead.
-- Deduplicate pure repeated slides (cite all slide numbers in `<span class="slide-tag">Slides X, Y</span>`), skip blank slides and unlabeled filler photos, and for dense spec sheets with zoomed legible halves, keep the legible halves rather than tiny unreadable full-page scans.
+- Only skip truly **100% blank empty pages**; never cut or drop any slide that contains content (if two slides are exact duplicates, keep the full content once and cite both slide numbers in `<span class="slide-tag">Slides X, Y</span>`). For dense spec sheets that also have zoomed legible halves, keep the legible halves and cite all slide numbers.
 
 ### Step 1: Ensure Course & Teacher Metadata Exist
 
