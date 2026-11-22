@@ -193,7 +193,7 @@ var {
 }
 
 .note-body .eq-box .katex {
-  font-size: 1.15em;
+  font-size: 1.08em;
   color: var(--text);
 }
 
@@ -207,7 +207,21 @@ var {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 12px 24px;
+  gap: 10px 20px;
+}
+
+.note-body .eq-row.eq-stack {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.note-body .eq-label {
+  font-family: "IBM Plex Sans", sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--primary);
+  line-height: 1.45;
 }
 
 .note-body .eq-row + .eq-row {

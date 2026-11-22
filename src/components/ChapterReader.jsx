@@ -13,25 +13,38 @@ export default function ChapterReader({
 }) {
   const bodyRef = useRef(null);
 
-  const resolvedHtml = useMemo(
-    () => chapter.html.replaceAll("{{SLIDES}}", chapter.slidesBase),
-    [chapter.html, chapter.slidesBase]
-  );
+  const resolvedHtml = useMemo(() => {
+    const withSlides = chapter.html.replaceAll("{{SLIDES}}", chapter.slidesBase);
+    return withSlides.replace(
+      /<span class="katex-eq"([^>]*)>([\s\S]*?)<\/span>/g,
+      (match, attrs, rawTex) => {
+        const tex = rawTex
+          .replace(/&amp;/g, "&")
+          .replace(/&lt;/g, "<")
+          .replace(/&gt;/g, ">")
+          .replace(/&quot;/g, '"')
+          .replace(/&#39;/g, "'")
+          .trim()
+          .replace(
+            /(\\begin\{(?:aligned|gathered)\})([\s\S]*?)(\\end\{(?:aligned|gathered)\})/g,
+            (_, open, body, close) =>
+              `${open}${body.replace(/\\\\(?!\s*\[)/g, "\\\\[0.75em]")}${close}`
+          );
+        const displayMode = !/data-display=["']false["']/.test(attrs);
+        const rendered = katex.renderToString(tex, {
+          displayMode,
+          throwOnError: false,
+          strict: false,
+        });
+        return `<span class="katex-eq"${attrs}>${rendered}</span>`;
+      }
+    );
+  }, [chapter.html, chapter.slidesBase]);
 
-  // 1. Render KaTeX equations + extract topic/subtopic metadata once per chapter
+  // 1. Extract topic/subtopic metadata once per chapter (KaTeX is already pre-rendered cleanly in useMemo)
   useEffect(() => {
     const root = bodyRef.current;
     if (!root) return;
-
-    root.querySelectorAll(".katex-eq").forEach((el) => {
-      const tex = el.textContent.trim();
-      const displayMode = el.dataset.display !== "false";
-      katex.render(tex, el, {
-        displayMode,
-        throwOnError: false,
-        strict: false,
-      });
-    });
 
     const sectionEls = Array.from(root.querySelectorAll(".topic-section"));
     const extracted = sectionEls.map((sec) => {

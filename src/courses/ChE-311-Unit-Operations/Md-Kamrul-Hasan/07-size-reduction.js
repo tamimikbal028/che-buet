@@ -755,14 +755,16 @@ export default {
         <div class="eq-row">
           <span class="katex-eq">\text{Centripetal component of the force of gravity} = \left(\frac{m g}{g_c}\right)\cos\alpha</span>
         </div>
-        <div class="eq-row">
-          <span class="katex-eq">\text{At the critical speed (two forces equal): } \frac{m g}{g_c}\cos\alpha = \frac{m\left[4\pi^2 n^2 (R - r)\right]}{g_c}</span>
+        <div class="eq-row eq-stack">
+          <div class="eq-label">At the critical speed (two forces equal):</div>
+          <span class="katex-eq">\frac{m g}{g_c}\cos\alpha = \frac{m\left[4\pi^2 n^2 (R - r)\right]}{g_c}</span>
         </div>
         <div class="eq-row">
           <span class="katex-eq">\cos\alpha = \frac{4\pi^2 n^2 (R - r)}{g}</span>
         </div>
-        <div class="eq-row">
-          <span class="katex-eq">\text{At the critical speed, } \alpha = 0,\; \cos\alpha = 1,\; n \Rightarrow n_c: \qquad \mathbf{n_c = \frac{1}{2\pi}\sqrt{\frac{g}{R - r}}}</span>
+        <div class="eq-row eq-stack">
+          <div class="eq-label">At the critical speed, &alpha; = 0, cos &alpha; = 1, n &rArr; n<sub>c</sub>:</div>
+          <span class="katex-eq">\mathbf{n_c = \frac{1}{2\pi}\sqrt{\frac{g}{R - r}}}</span>
         </div>
       </div>
 

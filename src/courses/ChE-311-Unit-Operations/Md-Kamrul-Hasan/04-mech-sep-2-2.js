@@ -448,14 +448,17 @@ export default {
           <span class="slide-tag">VGS Problem p. 2</span>
         </h3>
         <div class="eq-box" style="background: #fff">
-          <div class="eq-row">
-            <span class="katex-eq">\text{Step 1 — Operating gas density (real-gas law): } \rho_g = \frac{P M}{Z R T} = \frac{2000 \times 10^3 \times 0.020}{0.90 \times 8.314 \times 313.15} \approx \mathbf{17.07\ \text{kg/m}^3}</span>
+          <div class="eq-row eq-stack">
+            <div class="eq-label">Step 1 &mdash; Operating gas density (real-gas law):</div>
+            <span class="katex-eq">\begin{aligned}\rho_g &= \frac{P M}{Z R T} = \frac{2000 \times 10^3 \times 0.020}{0.90 \times 8.314 \times 313.15} \\ &\approx \mathbf{17.07\ \text{kg/m}^3}\end{aligned}</span>
           </div>
-          <div class="eq-row">
-            <span class="katex-eq">\text{Step 2 — Actual volumetric flow at operating conditions: } Q = Q_{\text{std}} \frac{P_{\text{std}}}{P} \frac{T}{T_{\text{std}}} Z = \left(\frac{1.2 \times 10^6}{86400}\right) \times \left(\frac{101.325}{2000}\right) \times \left(\frac{313.15}{288.15}\right) \times 0.90 \approx \mathbf{0.688\ \text{m}^3/\text{s}}</span>
+          <div class="eq-row eq-stack">
+            <div class="eq-label">Step 2 &mdash; Actual volumetric flow at operating conditions:</div>
+            <span class="katex-eq">\begin{aligned}Q &= Q_{\text{std}} \frac{P_{\text{std}}}{P} \frac{T}{T_{\text{std}}} Z \\ &= \left(\frac{1.2 \times 10^6}{86400}\right) \times \left(\frac{101.325}{2000}\right) \times \left(\frac{313.15}{288.15}\right) \times 0.90 \\ &\approx \mathbf{0.688\ \text{m}^3/\text{s}}\end{aligned}</span>
           </div>
-          <div class="eq-row">
-            <span class="katex-eq">\text{Step 3 — Design (maximum) gas flow (+20\% margin): } Q_{\max} = (1 + f) Q = 1.20 \times 0.688 \approx \mathbf{0.826\ \text{m}^3/\text{s}}</span>
+          <div class="eq-row eq-stack">
+            <div class="eq-label">Step 3 &mdash; Design (maximum) gas flow (+20% margin):</div>
+            <span class="katex-eq">Q_{\max} = (1 + f) Q = 1.20 \times 0.688 \approx \mathbf{0.826\ \text{m}^3/\text{s}}</span>
           </div>
         </div>
 
@@ -464,11 +467,13 @@ export default {
           <span class="slide-tag">VGS Problem p. 3</span>
         </h3>
         <div class="eq-box" style="background: #fff">
-          <div class="eq-row">
-            <span class="katex-eq">\text{Step 4 — Droplet drop-out velocity (Souders–Brown, Slide 8): } v_t = K \sqrt{\frac{\rho_l - \rho_g}{\rho_g}} = 0.10 \times \sqrt{\frac{600 - 17.07}{17.07}} = 0.10 \times \sqrt{34.15} \approx \mathbf{0.584\ \text{m/s}}</span>
+          <div class="eq-row eq-stack">
+            <div class="eq-label">Step 4 &mdash; Droplet drop-out velocity (Souders&ndash;Brown, Slide 8):</div>
+            <span class="katex-eq">\begin{aligned}v_t &= K \sqrt{\frac{\rho_l - \rho_g}{\rho_g}} = 0.10 \times \sqrt{\frac{600 - 17.07}{17.07}} \\ &= 0.10 \times \sqrt{34.15} \approx \mathbf{0.584\ \text{m/s}}\end{aligned}</span>
           </div>
-          <div class="eq-row">
-            <span class="katex-eq">\text{Step 5 — Required settling area (gas velocity } = v_t\text{): } A = \frac{Q_{\max}}{v_t} = \frac{0.826}{0.584} \approx \mathbf{1.41\ \text{m}^2}</span>
+          <div class="eq-row eq-stack">
+            <div class="eq-label">Step 5 &mdash; Required settling area (gas velocity = v<sub>t</sub>):</div>
+            <span class="katex-eq">A = \frac{Q_{\max}}{v_t} = \frac{0.826}{0.584} \approx \mathbf{1.41\ \text{m}^2}</span>
             <span class="eq-note">full circle &rarr; A = &pi;D<sub>v</sub><sup>2</sup>/4</span>
           </div>
         </div>
@@ -478,11 +483,13 @@ export default {
           <span class="slide-tag">VGS Problem p. 4</span>
         </h3>
         <div class="eq-box" style="background: #fff">
-          <div class="eq-row">
-            <span class="katex-eq">\text{Step 6 — Vessel diameter: } A = \frac{\pi D_v^2}{4} \implies D_v = \sqrt{\frac{4 A}{\pi}} = \sqrt{\frac{4 \times 1.413}{\pi}} = \sqrt{1.799} \approx \mathbf{1.34\ \text{m}}</span>
+          <div class="eq-row eq-stack">
+            <div class="eq-label">Step 6 &mdash; Vessel diameter:</div>
+            <span class="katex-eq">\begin{aligned}A &= \frac{\pi D_v^2}{4} \implies D_v = \sqrt{\frac{4 A}{\pi}} \\ &= \sqrt{\frac{4 \times 1.413}{\pi}} = \sqrt{1.799} \approx \mathbf{1.34\ \text{m}}\end{aligned}</span>
           </div>
-          <div class="eq-row">
-            <span class="katex-eq">\text{Step 7 — Total height, tangent-to-tangent: } H = h + d_n + X + Y = 0.76 + 0.15 + 0.40 + 1.21 = \mathbf{2.52\ \text{m}}</span>
+          <div class="eq-row eq-stack">
+            <div class="eq-label">Step 7 &mdash; Total height, tangent-to-tangent:</div>
+            <span class="katex-eq">\begin{aligned}H &= h + d_n + X + Y \\ &= 0.76 + 0.15 + 0.40 + 1.21 = \mathbf{2.52\ \text{m}}\end{aligned}</span>
           </div>
         </div>
 
@@ -620,7 +627,10 @@ export default {
         </p>
         <div class="eq-box" style="background: #fff">
           <div class="eq-row">
-            <span class="katex-eq">V_t = \sqrt{\frac{4 g D_p (\rho_1 - \rho_g)}{3 \rho_g C_D}}, \qquad C_D (\text{Re})^2 = \frac{(1.31)(10^7)\,\rho_g D_p^3 (\rho_1 - \rho_g)}{\mu^2}</span>
+            <span class="katex-eq">V_t = \sqrt{\frac{4 g D_p (\rho_1 - \rho_g)}{3 \rho_g C_D}}</span>
+          </div>
+          <div class="eq-row">
+            <span class="katex-eq">C_D (\text{Re})^2 = \frac{(1.31)(10^7)\,\rho_g D_p^3 (\rho_1 - \rho_g)}{\mu^2}</span>
           </div>
         </div>
 
