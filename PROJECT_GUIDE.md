@@ -45,7 +45,7 @@ MTS/
 2. **Handwritten annotations on slides:** Include legible handwritten symbols/notes that actually appear on the slide (e.g., `Ps`, `Pb`, `PRV/PSV`, `N₂, CO₂`, `α`, `ΔT`) faithfully, without adding outside explanations.
 3. **100% Slide Coverage:** Every non-blank slide of the PDF must be accounted for with slide tags (`<span class="slide-tag">Slide X</span>`).
 4. **No Double Numbering:**
-   - `assets/app.js` builds `<ol>` Contents Overview by stripping leading `N. ` from each `h2.section-title`.
+   - `assets/app.js` builds `<ol>` Contents Overview by stripping leading `N.` from each `h2.section-title`.
    - If a slide heading already starts with a case number (like `1a -`, `2a -`, `3 -`, `4 –`, `5 -`, `6 –`), do **not** prefix another number in front of it (e.g., put `(1a)` at the end of `h2` and keep `1a - ...` clean on `h3`).
 
 ### B. Slide Image Policy (Diagrams/Graphs ONLY!)
@@ -66,7 +66,7 @@ MTS/
 
 - **Always use KaTeX (`<span class="katex-eq">...</span>`)** inside `.eq-box > .eq-row`. Never use CSS `.frac`/`.sqrt` hacks or raw MathML.
 - KaTeX v0.16.11 is bundled locally in `assets/katex/` (100% offline, no CDN required).
-- In `note.js`, use **`html: String.raw\`...\``** for template literals so LaTeX backslashes (`\frac`, `\sqrt`, `\left`, `\right`, `\rho`, `\Delta`, etc.) stay literal and are never eaten as JS escape sequences.
+- In `note.js`, use **`html: String.raw\`...\``** for template literals so LaTeX backslashes (`\frac`,`\sqrt`,`\left`,`\right`,`\rho`,`\Delta`, etc.) stay literal and are never eaten as JS escape sequences.
 - Use `\left[ ... \right]` and `\left( ... \right)` around tall fractions/roots so brackets stretch cleanly.
 
 ### E. Offline-First `file://` Architecture (Zero CORS)
