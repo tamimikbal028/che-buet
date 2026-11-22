@@ -29,14 +29,29 @@ MTS/
 │   │   ├── index.html                # Standalone chapter page
 │   │   ├── note.js                   # Chapter registry payload + verbatim HTML
 │   │   └── slides/                   # ONLY diagram/graph/chart slide PNGs (10 files)
-│   └── ejectors/                     # PDF 3: 3_Ejector.pdf (34 slides, Chap-6 Ludwig)
+│   ├── ejectors/                     # PDF 3: 3_Ejector.pdf (34 slides, Chap-6 Ludwig)
+│   │   ├── index.html                # Standalone chapter page
+│   │   ├── note.js                   # Chapter registry payload + verbatim HTML
+│   │   └── slides/                   # ONLY diagram/graph/chart/form slide PNGs (17 files)
+│   ├── evaporator/                   # PDF 4: 4_2025_Evaporator.pdf (101 slides, CHE 311)
+│   │   ├── index.html                # Standalone chapter page
+│   │   ├── note.js                   # Chapter registry payload + verbatim HTML
+│   │   └── slides/                   # ONLY diagram/graph/chart/form slide PNGs (28 files)
+│   ├── dryer/                        # PDF 5: 5_Dryer.pdf (99 slides)
+│   │   ├── index.html                # Standalone chapter page
+│   │   ├── note.js                   # Chapter registry payload + verbatim HTML
+│   │   └── slides/                   # ONLY diagram/graph/chart slide PNGs (33 files)
+│   └── mixing-agitation/             # PDF 6: 6_Mixing Agitation  2026.pdf (48 slides)
 │       ├── index.html                # Standalone chapter page
 │       ├── note.js                   # Chapter registry payload + verbatim HTML
-│       └── slides/                   # ONLY diagram/graph/chart/form slide PNGs (17 files)
+│       └── slides/                   # ONLY diagram/graph/chart/form slide PNGs (24 files)
 └── pdfs/
     ├── 1_Relief system.pdf
     ├── 2_Chapter 9 relief sizing.pdf
-    └── 3_Ejector.pdf
+    ├── 3_Ejector.pdf
+    ├── 4_2025_Evaporator.pdf
+    ├── 5_Dryer.pdf
+    └── 6_Mixing Agitation  2026.pdf
 ```
 
 ---
@@ -251,8 +266,11 @@ for (const note of ctx.window.NOTES_REGISTRY) {
 
 ## 4. Completed Chapters Inventory
 
-| #   | PDF Source                                                                              | Folder                  | Topics | Equations (KaTeX) | Visual Slide PNGs Kept                                                    |
-| --- | --------------------------------------------------------------------------------------- | ----------------------- | ------ | ----------------- | ------------------------------------------------------------------------- |
-| 1   | `pdfs/1_Relief system.pdf` (47 slides)                                                  | `notes/relief-systems/` | 8      | 4                 | 17 (`01, 02, 03, 07, 12, 13, 15, 16, 18, 30, 31, 32, 35, 36, 39, 40, 42`) |
-| 2   | `pdfs/2_Chapter 9 relief sizing.pdf` (Slides 2–41; p.1 blank)                           | `notes/relief-sizing/`  | 8      | 25                | 10 (`05, 10, 12, 14, 17, 21, 23, 33, 37, 40`)                             |
-| 3   | `pdfs/3_Ejector.pdf` (34 slides, Chap-6 Ludwig)                                         | `notes/ejectors/`       | 7      | 11                | 17 (`01, 02, 03, 05, 06, 07, 09, 11, 15, 16, 17, 18, 19, 28, 30, 31, 34`) |
+| #   | PDF Source                                                    | Folder                    | Topics | Equations (KaTeX) | Visual Slide PNGs Kept                                                                                                                    |
+| --- | ------------------------------------------------------------- | ------------------------- | ------ | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | `pdfs/1_Relief system.pdf` (47 slides)                        | `notes/relief-systems/`   | 8      | 4                 | 17 (`01, 02, 03, 07, 12, 13, 15, 16, 18, 30, 31, 32, 35, 36, 39, 40, 42`)                                                                 |
+| 2   | `pdfs/2_Chapter 9 relief sizing.pdf` (Slides 2–41; p.1 blank) | `notes/relief-sizing/`    | 8      | 25                | 10 (`05, 10, 12, 14, 17, 21, 23, 33, 37, 40`)                                                                                             |
+| 3   | `pdfs/3_Ejector.pdf` (34 slides, Chap-6 Ludwig)               | `notes/ejectors/`         | 7      | 11                | 17 (`01, 02, 03, 05, 06, 07, 09, 11, 15, 16, 17, 18, 19, 28, 30, 31, 34`)                                                                 |
+| 4   | `pdfs/4_2025_Evaporator.pdf` (101 slides, CHE 311)            | `notes/evaporator/`       | 11     | 67                | 28 (`10, 14, 16, 17, 19, 20, 21, 30, 32, 33, 35, 37, 38, 39, 42, 43, 44, 45, 58, 59, 70, 77, 80, 91, 92, 97, 99, 101`)                    |
+| 5   | `pdfs/5_Dryer.pdf` (99 slides)                                | `notes/dryer/`            | 10     | 54                | 33 (`04, 06, 07, 08, 09, 11, 12, 14, 15, 16, 19, 20, 21, 22, 23, 24, 25, 27, 28, 33, 35, 37, 39, 40, 42, 44, 48, 52, 60, 67, 69, 79, 82`) |
+| 6   | `pdfs/6_Mixing Agitation  2026.pdf` (48 slides)               | `notes/mixing-agitation/` | 8      | 16                | 24 (`01, 08, 09, 10, 11, 12, 13, 14, 17, 18, 19, 20, 21, 22, 26, 27, 28, 29, 34, 37, 42, 43, 47, 48`)                                     |
